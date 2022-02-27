@@ -13,7 +13,7 @@
 //
 // *
 
-
+//start
 #include <Servo.h>
 int pivot_flag=0;
 unsigned long currentMillis = 0;
@@ -23,7 +23,11 @@ unsigned long millistimer = 50;//50,500
 
 int pivot_servo_pin = 19;
 int left_servo_pin = 18;
+int pin_recieve = 14;
+int pin_send = 15;
 
+void Pivot_Movement();
+void other_teensy_comm();
 
 Servo pivot_servo;
 Servo left_servo;
@@ -38,7 +42,14 @@ void setup(){
 
   pinMode(pivot_servo_pin,OUTPUT);
   pinMode(left_servo_pin,OUTPUT);
+  pinMode(pin_send,OUTPUT);
+  pinMode(pin_recieve,INPUT);
+  
+  digitalWrite(pin_send,LOW);
 
+  pivot_servo.write(20);
+  left_servo.write(10);
+  
 }
 
 
@@ -48,14 +59,36 @@ int left_angle=10;
 
 void loop(){
 
-if(pivot_flag==0){
-  pivot_flag=1;
+while(digitalRead(pin_recieve)==LOW ){
+digitalWrite(pin_send,LOW);
+Serial.println("NOT RECIEVED");
+}
+
+  if(pivot_flag==0){
+//  pivot_flag=1;
   Pivot_Movement();
+  digitalWrite(pin_send,HIGH);
+  
+  currentMillis = millis();
+  while(currentMillis - previousMillis < 1000){
+    currentMillis = millis();
+    }
+  
+
 }
 
+}
 
+void other_teensy_comm(){
+
+  digitalWrite(pin_send,HIGH);
+  while(digitalRead(pin_recieve) == LOW){
+  //nothing
+  }
+  digitalWrite(pin_send,LOW);
 
 }
+
 
 void Pivot_Movement(){
 currentMillis = millis();
