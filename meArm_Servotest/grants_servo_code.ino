@@ -1,17 +1,3 @@
-//'* Author:  Sunil Alexander THE SON OF A BISCUIT CONQUEROR
-//* Lab Section: 021
-// * Assignment: Lab Final Project
-// * Exercise Description: [optional - include for your own benefit]
-// *
-// * I acknowledge all content contained herein, excluding template or example
-// * code, is my own original work.
-// *
-// *  Demo Link: https://drive.google.com/file/d/1u_rLmP5nUXY-HwEEr2AvZb6z6dsKXMWZ/view?usp=sharing
-//    https://drive.google.com/file/d/1Niaap2sKQjGRSW3e9IFZhQNANrRmxlKP/view?usp=sharing
-//
-//    Demo#2: https://drive.google.com/file/d/1ZlpfcudxScRiedtSmgaA8Bs-b-qnyizu/view?usp=sharing
-//
-// *
 
 //start
 #include <Servo.h>
