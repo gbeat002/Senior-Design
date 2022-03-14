@@ -12,7 +12,7 @@ serial_port = serial.Serial(
 
 
 
-def uart_test(centroid):
+def serial_test(centroid):
 
     centroid_word=six_chars(centroid)
 
