@@ -1,10 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 def simplified(image):
 
 
   g = ((image[:,:,1]>image[:,:,2])*image[:,:,1]).astype("int")
-  g = ((g-60>image[:,:,0])).astype("uint8")*255
+  g = ((g-40>image[:,:,0])).astype("uint8")*255
 
 
   r = ((image[:,:,2]>image[:,:,0])*image[:,:,2]).astype("int")
