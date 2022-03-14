@@ -13,7 +13,7 @@ from IsolateObj import IsolateObj
 from ReduceSizeAndPad import ReduceSizeAndPad
 from simplified import simplified
 from six_chars import six_chars
-from uart_test import uart_test
+from serial_test import serial_test
 
 # gstreamer_pipeline returns a GStreamer pipeline for capturing from the CSI camera
 # Defaults to 1280x720 @ 60fps
@@ -74,8 +74,8 @@ def show_camera():
                 print("recieved")
             if dataz == 'z':
                 dataz='a'
-                print("uart_test")
-                uart_test(centroid)
+                print("serial_test")
+                serial_test(centroid)
             ret_val, img = cap.read()
             #cv2.imshow("CSI Camera", img)
             img=ReduceSizeAndPad(img,50.0) #5 10
